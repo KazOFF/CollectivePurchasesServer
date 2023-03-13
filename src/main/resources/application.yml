@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cp_server
+    username: cp_server_user
+    password: cp_server_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+#    properties:
+#      hibernate:
+#        format_sql: true
+  security:
+    filter:
+      order: 10
+
+server:
+  servlet:
+    context-path: /
+app:
+  jwt:
+    issuer: CollectivePurchasesServer
+grpc:
+  server:
+    security:
+      #enabled: true
+      client-auth: require
+    port: 9090
+
+springdoc:
+  swagger-ui:
+    use-root-path: true
+
